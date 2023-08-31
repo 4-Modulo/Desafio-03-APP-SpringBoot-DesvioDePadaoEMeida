@@ -19,7 +19,7 @@ public class AppController {
     @Autowired
     private AppService appService;
     @PostMapping
-    public ResponseEntity<?> newMarca(@RequestBody final App app) {
+    public ResponseEntity<?> post(@RequestBody final App app) {
         try {
             App calculatedApp = this.appService.create(app);
 
@@ -27,7 +27,6 @@ public class AppController {
             BigDecimal media = calculatedApp.getMedia();
             BigDecimal desvioPadrao = calculatedApp.getDesvioPadrao();
             String returnMesage = String.format("%s\nMédia: %s\nDesvio Padrão: %s", message, media, desvioPadrao);
-
             return ResponseEntity.ok(returnMesage);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.internalServerError().body("Error: " + e.getMessage());

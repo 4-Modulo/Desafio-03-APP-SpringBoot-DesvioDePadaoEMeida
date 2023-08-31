@@ -5,13 +5,10 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.util.List;
 
-
+@Getter @Setter
 public class App {
-    @Getter @Setter
     private List<Integer> Entradas;
-    @Setter @Getter
     private BigDecimal media;
-    @Getter @Setter
     private BigDecimal desvioPadrao;
 
 }
